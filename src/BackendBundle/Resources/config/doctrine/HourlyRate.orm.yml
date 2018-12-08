@@ -1,0 +1,27 @@
+BackendBundle\Entity\HourlyRate:
+    type: entity
+    table: hourly_rate
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        timeCategory:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: time_category
+        rate:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

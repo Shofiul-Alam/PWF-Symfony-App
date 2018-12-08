@@ -1,0 +1,83 @@
+BackendBundle\Entity\AllocatedDates:
+    type: entity
+    table: allocated_dates
+    repositoryClass: BackendBundle\Repository\AllocatedDatesRepository
+    indexes:
+        fk_employee_allocation_date_range_employee_allocation1_idx:
+            columns:
+                - employee_allocation_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: datetime
+            nullable: true
+        day:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        respond:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        cancelallocation:
+            type: boolean
+            nullable: true
+            column: cancelAllocation
+        deny:
+            type: boolean
+            column: deny
+        accecptallocation:
+            type: boolean
+            nullable: true
+            column: accecptAllocation
+        reAllocated:
+            type: boolean
+            nullable: true
+            column: reallocated
+        requestsend:
+            type: boolean
+            nullable: true
+            column: requestSend
+        cancelSms:
+            type: string
+            nullable: true
+            length: 600
+            options:
+                fixed: false
+            column: cancelSms
+        sms:
+            type: string
+            nullable: true
+            length: 600
+            options:
+                fixed: false
+            column: sms
+    manyToOne:
+        employeeAllocation:
+            targetEntity: EmployeeAllocation
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_allocation_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToOne:
+        siteArrival:
+            targetEntity: SiteArrival
+            mappedBy: allocatedDates
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

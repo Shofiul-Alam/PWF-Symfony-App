@@ -1,0 +1,57 @@
+BackendBundle\Entity\TimesheetHourEntry:
+    type: entity
+    table: timesheet_hour_entry
+    indexes:
+        fk_timesheet_hour_entry_hourly_rate1_idx:
+            columns:
+                - hourly_rate_id
+        fk_timesheet_hour_entry_time_sheet1_idx:
+            columns:
+                - time_sheet_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        rate:
+            type: decimal
+            nullable: true
+            precision: 11
+            scale: 0
+        hours:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        minutes:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        hourlyRate:
+            targetEntity: HourlyRate
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                hourly_rate_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        timeSheet:
+            targetEntity: TimeSheet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                time_sheet_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

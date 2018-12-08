@@ -1,0 +1,68 @@
+BackendBundle\Entity\EmployeeOtherDocument:
+    type: entity
+    table: employee_other_document
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        alt:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        width:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        height:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        path:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        fileName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: file_name
+        mime:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        storageType:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: storage_type
+        size:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        uploadedDate:
+            type: datetime
+            nullable: true
+            column: uploaded_date
+    lifecycleCallbacks: {  }

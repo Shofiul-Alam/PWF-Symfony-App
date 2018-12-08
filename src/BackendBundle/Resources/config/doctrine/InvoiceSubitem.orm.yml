@@ -1,0 +1,50 @@
+BackendBundle\Entity\InvoiceSubitem:
+    type: entity
+    table: invoice_subitem
+    indexes:
+        fk_invoice_subitem_invoice_item1_idx:
+            columns:
+                - invoice_item_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        details:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        quantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        rate:
+            type: decimal
+            nullable: true
+            precision: 4
+            scale: 0
+        price:
+            type: decimal
+            nullable: true
+            precision: 4
+            scale: 0
+    manyToOne:
+        invoiceItem:
+            targetEntity: InvoiceItem
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                invoice_item_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

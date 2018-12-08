@@ -1,0 +1,96 @@
+BackendBundle\Entity\SiteArrival:
+    type: entity
+    table: site_arrival
+    indexes:
+        fk_site_arrival_allocated_dates_idx:
+            columns:
+                - allocated_dates_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        submitted:
+            type: boolean
+            nullable: true
+        highVisibilityShirtVest:
+            type: boolean
+            nullable: true
+            column: high_visibility_shirt_vest
+        steelCapBoots:
+            type: boolean
+            nullable: true
+            column: steel_cap_boots
+        gloves:
+            type: boolean
+            nullable: true
+        protectionGlasses:
+            type: boolean
+            nullable: true
+            column: protection_glasses
+        dustMaskOrOtherPpe:
+            type: boolean
+            nullable: true
+            column: dust_mask_or_other_PPE
+        earPlugs:
+            type: boolean
+            nullable: true
+            column: ear_plugs
+        hardHat:
+            type: boolean
+            nullable: true
+            column: hard_hat
+        sunscreen:
+            type: boolean
+            nullable: true
+        gumBoots:
+            type: boolean
+            nullable: true
+            column: gum_boots
+        freeOfAlcoholDrug:
+            type: boolean
+            nullable: true
+            column: free_of_alcohol_drug
+        supervisorName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: supervisor_name
+        safetyInductionDone:
+            type: boolean
+            nullable: true
+            column: safety_induction_done
+        whatToDo:
+            type: boolean
+            nullable: true
+            column: what_to_do
+        supervisorSign:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: supervisor_sign
+        supervisorSignRefusal:
+            type: boolean
+            nullable: true
+            column: supervisor_sign_refusal
+    manyToOne:
+        allocatedDates:
+            targetEntity: AllocatedDates
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                allocated_dates_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

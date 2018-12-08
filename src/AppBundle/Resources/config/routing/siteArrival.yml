@@ -1,0 +1,8 @@
+employee_site_arrival_add:
+    path: /add-site-arrival
+    defaults: {_controller: "AppBundle:Staff/SiteArrival:addSiteArrival"}
+    methods: POST
+employee_site_arrival_find:
+    path: /find-site-arrival
+    defaults: {_controller: "AppBundle:Staff/SiteArrival:getSiteArrivalById"}
+    methods: POST

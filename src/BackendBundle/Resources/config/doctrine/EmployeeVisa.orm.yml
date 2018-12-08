@@ -1,0 +1,37 @@
+BackendBundle\Entity\EmployeeVisa:
+    type: entity
+    table: employee_visa
+    indexes:
+        fk_employee_visa_employee_other_document1_idx:
+            columns:
+                - employee_other_document_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        issueDate:
+            type: datetime
+            nullable: true
+            column: issue_date
+        expiryDate:
+            type: datetime
+            nullable: true
+            column: expiry_date
+    manyToOne:
+        employeeOtherDocument:
+            targetEntity: EmployeeOtherDocument
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_other_document_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

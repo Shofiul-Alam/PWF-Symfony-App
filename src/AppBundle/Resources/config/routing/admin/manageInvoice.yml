@@ -1,0 +1,16 @@
+manage_timesheets_from_period:
+    path: /timesheets-in-range
+    defaults: {_controller: "AppBundle:Admin/ManageInvoice:findTimesheetsFromDateRange"}
+    methods: POST
+manage_employees_have_timesheets:
+    path: /employees-have-timesheets
+    defaults: {_controller: "AppBundle:Admin/ManageInvoice:getEmplopyessHaveTimesheet"}
+    methods: POST
+manage_create_invoice:
+    path: /save
+    defaults: {_controller: "AppBundle:Admin/ManageInvoice:createInvoice"}
+    methods: POST
+manage_invoice_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageInvoice:getAllInvoice"}
+    methods: POST

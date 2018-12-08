@@ -1,0 +1,16 @@
+employee_form:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/Form:getForms"}
+    methods: POST
+employee_save_form:
+    path: /save-data
+    defaults: {_controller: "AppBundle:Staff/Form:saveForm"}
+    methods: POST
+employee_submitted_forms:
+    path: /submitted-forms
+    defaults: {_controller: "AppBundle:Staff/Form:getSubmittedForms"}
+    methods: POST
+employee_update_form:
+    path: /update-data
+    defaults: {_controller: "AppBundle:Staff/Form:updateFormData"}
+    methods: POST

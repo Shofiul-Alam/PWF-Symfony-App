@@ -1,0 +1,4 @@
+position_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/Job:list"}
+    methods: POST

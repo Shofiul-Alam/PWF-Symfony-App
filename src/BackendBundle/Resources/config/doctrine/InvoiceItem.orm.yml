@@ -1,0 +1,56 @@
+BackendBundle\Entity\InvoiceItem:
+    type: entity
+    table: invoice_item
+    indexes:
+        fk_invoice_item_invoice1_idx:
+            columns:
+                - invoice_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: datetime
+            nullable: true
+        day:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        details:
+            type: string
+            nullable: true
+            length: 400
+            options:
+                fixed: false
+        itemTotal:
+            type: decimal
+            nullable: true
+            precision: 8
+            scale: 0
+            column: item_total
+    manyToOne:
+        invoice:
+            targetEntity: Invoice
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                invoice_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        invoiceSubitem:
+            targetEntity: InvoiceSubitem
+            cascade: ["persist", "remove"]
+            mappedBy: invoiceItem
+            fetch: LAZY;
+    lifecycleCallbacks: {  }
